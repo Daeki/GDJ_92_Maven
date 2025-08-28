@@ -27,6 +27,10 @@
 					<div class="alert alert-primary" role="alert">
 					  <img src="/files/member/${member.profileVO.saveName}">
 					</div>
+					
+					<div>
+						<a href="./delete">탈퇴</a>
+					</div>
 					</div>
 				</div>
 			</div>

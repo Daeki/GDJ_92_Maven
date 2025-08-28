@@ -24,6 +24,8 @@ public class AddLogoutSuccessHandler implements LogoutSuccessHandler {
 		log.info("logout success");
 		log.info("{}", authentication);
 		
-		response.sendRedirect("https://kauth.kakao.com/oauth/logout?client_id="+restKey+"&logout_redirect_uri=http://localhost/");
+		response.sendRedirect("/");
+		//카카오계정과 함께 로그 아웃
+		//response.sendRedirect("https://kauth.kakao.com/oauth/logout?client_id="+restKey+"&logout_redirect_uri=http://localhost/");
 	}
 }
