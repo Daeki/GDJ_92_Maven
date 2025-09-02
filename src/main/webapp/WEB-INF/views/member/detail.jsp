@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>    
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,10 +17,11 @@
 		<div id="content-wrapper" class="d-flex flex-column">
 			<div id="content">
 				<c:import url="/WEB-INF/views/include/topbar.jsp"></c:import>
+				<sec:authentication property="principal" var="member"/>
 				<div class="container-fluid">
 					<div>
 					<div class="alert alert-primary" role="alert">
-					  ${member.username}
+					  ${member.email}
 					</div>
 					<div class="alert alert-primary" role="alert">
 					  ${member.email}

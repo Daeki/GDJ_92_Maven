@@ -26,7 +26,7 @@
 					<div class="row justify-content-center ">
 						<div class="col-md-8">
 							<h3>${param.failMessage}</h3>
-							<form method="post">
+							<form method="post" action="loginProcess">
 								<div class="mb-3">
 									<label for="username" class="form-label">ID</label> 
 									<input type="text" value="${cookie.rememberId.value}" class="form-control" name="username" id="username" aria-describedby="usernameHelp">
