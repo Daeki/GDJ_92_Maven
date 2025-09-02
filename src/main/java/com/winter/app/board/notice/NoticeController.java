@@ -47,10 +47,7 @@ public class NoticeController {
 	public String list(@ModelAttribute Pager pager, Model model)throws Exception{
 		//
 		
-		if(pager != null) {
-			throw new NullPointerException();
-		}
-		
+
 		List<BoardVO> list = noticeService.list(pager);
 		
 		
