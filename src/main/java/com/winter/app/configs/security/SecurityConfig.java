@@ -15,7 +15,7 @@ import org.springframework.util.AntPathMatcher;
 import com.winter.app.members.MemberService;
 
 @Configuration
-@EnableWebSecurity
+@EnableWebSecurity//(debug = true)
 public class SecurityConfig {
 	
 	@Autowired

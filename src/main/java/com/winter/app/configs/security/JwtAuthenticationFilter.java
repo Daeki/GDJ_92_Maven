@@ -53,6 +53,11 @@ public class JwtAuthenticationFilter extends BasicAuthenticationFilter {
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				
+				//SecurityException || MalformedException || SignatureException : 유효하지 않는 JWT 서명
+				//ExpiredJwtException     : 기간이 만료된 Token
+				//UnsupportedJwtException : 지원되지 않는 Token
+				//IllegalArgumentException : 잘못된 토큰
 			}
 		}
 		
