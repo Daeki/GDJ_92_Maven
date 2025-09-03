@@ -34,6 +34,9 @@ public class JwtTokenManager {
 	@Value("${jwt.tokenValidTime}")
 	private Long tokenValidTime;
 	
+	@Value("${jwt.refreshValidTime}")
+	private Long refreshValidTime;
+	
 	@Value("${jwt.issuer}")
 	private String issuer;
 	
@@ -49,14 +52,22 @@ public class JwtTokenManager {
 		key = Keys.hmacShaKeyFor(k.getBytes());
 	}
 	
+	public String makeAccessToken(Authentication authentication) {
+		return this.createToken(authentication, tokenValidTime);
+	}
+	
+	public String makeRefreshToken(Authentication authentication) {
+		return this.createToken(authentication, refreshValidTime);
+	}
+	
 	//Token 발급
-	public String createToken(Authentication authentication) {
+	private String createToken(Authentication authentication, Long validTime) {
 		return Jwts
 				.builder()
 				.subject(authentication.getName()) //subject : 사용자의 ID(username)
 				.claim("roles", authentication.getAuthorities().toString())
 				.issuedAt(new Date()) //Token을 생성한 시간
-				.expiration(new Date(System.currentTimeMillis()+tokenValidTime))
+				.expiration(new Date(System.currentTimeMillis()+validTime))
 				.issuer(issuer)
 				.signWith(key)
 				.compact()
